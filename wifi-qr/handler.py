@@ -1,3 +1,4 @@
+import sys
 import json
 import wifi_qrcode_generator.generator
 import base64
@@ -6,9 +7,15 @@ from io import BytesIO
 def handle(event, context):
     # clientdata_dict = json.loads(event.body)
     clientdata_dict = event.query 
-
-    ssid = clientdata_dict['ssid']
-    password = clientdata_dict['password']
+    try:
+        ssid = clientdata_dict['ssid']
+        password = clientdata_dict['password']
+    except Exception as e:
+        sys.stderr.write(str(e))
+        return {
+            "statusCode": 400,
+            "body": str(e)
+        }
 
     auth = clientdata_dict.get('auth', 'WPA')
     hidden = clientdata_dict.get('hidden', 'false')
