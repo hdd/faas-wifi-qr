@@ -3,7 +3,7 @@ provider:
   name: openfaas
   gateway: http://127.0.0.1:8080
 functions:
-  my-qrcode:
+  wifi-qr:
     lang: python3-http-debian
     handler: ./wifi-qr
     image: registry.home.casamayolica.com/wifi-qr:latest

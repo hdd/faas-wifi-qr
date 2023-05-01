@@ -4,8 +4,8 @@ import base64
 from io import BytesIO
 
 def handle(event, context):
-    clientdata_dict = json.loads(event.body)
-    # clientdata_dict = event.body
+    # clientdata_dict = json.loads(event.body)
+    clientdata_dict = event.query 
 
     ssid = clientdata_dict['ssid']
     password = clientdata_dict['password']
