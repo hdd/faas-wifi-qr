@@ -25,5 +25,5 @@ def handle(event, context):
 
     return {
         "statusCode": 200,
-        "body": f'data:image/png;base64,{img_str}',
+        "body": f'<img src=data:image/png;base64,{img_str}>',
     }
