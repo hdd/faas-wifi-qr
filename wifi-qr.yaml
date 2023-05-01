@@ -1,0 +1,11 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  my-qrcode:
+    lang: python3-http-debian
+    handler: ./wifi-qr
+    image: registry.home.casamayolica.com/wifi-qr:latest
+    build_args:
+      ADDITIONAL_PACKAGE: "build-essential python3-dev python3-setuptools zlib1g-dev libjpeg-dev "
